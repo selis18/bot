@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "node": "^20.7.0",
+    "node-telegram-bot-api": "^0.63.0"
+  },
+  "name": "bot",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^8.51.0"
+  }
+}
