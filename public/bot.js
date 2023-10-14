@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const { Client, GatewayIntentBits } = require('discord.js');
 const TelegramBot = require('node-telegram-bot-api');
+<<<<<<< HEAD:public/bot.js
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -19,27 +20,19 @@ const firebaseConfig = {
   };
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+=======
+>>>>>>> parent of dd9dd83 (add html):bot.js
 
-// Парсинг данных из тела запроса
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// Токен вашего Telegram бота
+const telegramToken = '6313488393:AAEWBEywIlGOCDC-mk4Xq7W8WYSOUcMjKAU';
 
-const port = 3000;
+// ID чата, в который будут отправляться уведомления
+const telegramChatId = '-988496493';
 
-// Определяем статическую директорию для наших статических файлов
-app.use(express.static(path.join(__dirname, 'public')));
+// Токен вашего Discord бота
+const discordToken = 'MTE2MjM1OTMwNjgzMDc0NTY4MA.GdBG05.fsA3lciHA6N2SRHAC12xZ3Y03PfKVFOw2AGIIg';
 
-// Определяем маршрут для отображения HTML страницы
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-app.post('/start-bot', (req, res) => {
-  const telegramToken = req.body.tk;
-  const telegramChatId = req.body.tci;
-  const discordToken = req.body.dt;
-
-  // Создание экземпляра клиента Discord
+// Создание экземпляра клиента Discord
 const discordBot = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates]
 });
@@ -63,11 +56,3 @@ await sendTelegramMessage(message);
 
 // Запуск бота Discord
 discordBot.login(discordToken);
-
-  res.send('Bot запущен успешно!');
-});
-
-// Запускаем сервер
-app.listen(port, () => {
-  console.log(`Сервер запущен на порту ${port}`);
-});
