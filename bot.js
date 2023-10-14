@@ -5,6 +5,20 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyB0b5Shl4QLz3ZkU3hF4OvARWZa-CX4qlk",
+    authDomain: "bothds.firebaseapp.com",
+    projectId: "bothds",
+    storageBucket: "bothds.appspot.com",
+    messagingSenderId: "142596566586",
+    appId: "1:142596566586:web:d87fdc2fd42171642a4f03",
+    measurementId: "G-K52SLHQVLP"
+  };
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 
 // Парсинг данных из тела запроса
 app.use(bodyParser.urlencoded({ extended: false }));
